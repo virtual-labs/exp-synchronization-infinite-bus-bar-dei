@@ -1,1 +1,1 @@
-## Study of Synchronization of an Alternator with an Infinite Bus Bar
+## Synchronization of an Alternator with an Infinite Bus Bar
