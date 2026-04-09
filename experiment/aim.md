@@ -1,1 +1,1 @@
-### Aim of the experiment
+## To study the Synchronization of the alternator with infinite bus bar.
