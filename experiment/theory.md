@@ -1,68 +1,147 @@
-# Experiment 1: Synchronization of Alternators
+<!DOCTYPE html>
+<html>
+<head>
+<title>Synchronization of Alternator with Infinite Bus Bar</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}
+h2{
+    color: #2c3e50;
+}
+.section-title{
+    font-weight: bold;
+    margin-top: 20px;
+}
+img{
+    display: block;
+    margin: 10px auto;
+}
+ul, ol{
+    margin-left: 25px;
+}
+.center{
+    text-align: center;
+}
+</style>
+</head>
 
-This project is part of the **Virtual Power Laboratory at D.E.I.**, focusing on the theoretical and practical requirements for synchronizing an incoming alternator with a bus bar or another alternator.
+<body>
 
----
+<h2>Theory of Experiment – 1</h2>
 
-## 📋 Pre-Synchronization Conditions
+<p>Before synchronization, the following conditions must be satisfied:</p>
 
-Before an alternator can be safely connected to the system, the following three conditions **must** be satisfied:
+<h3>1. Equality of Voltage</h3>
+<p>
+The terminal voltage of both the systems i.e., the incoming alternator and the bus bar
+voltage (or other alternator) must be the same.
+</p>
 
-1.  **Equality of Voltage**: The terminal voltage of the incoming alternator must match the bus bar voltage.
-2.  **Phase Sequence**: The phase sequence (order of rotation) of both systems must be identical.
-3.  **Equality of Frequency**: The frequency of the incoming machine must match the system frequency.
+<h3>2. Phase Sequence</h3>
+<p>
+The phase sequence of both the systems must be the same.
+</p>
 
-> [!NOTE]
-> Voltage is verified using a voltmeter, while phase sequence and frequency are checked using synchronizing methods.
+<h3>3. Equality of Frequency</h3>
+<p>
+The frequency of both the systems must be the same. Voltage equality can be checked
+using a voltmeter, while phase sequence and frequency are checked using synchronizing methods.
+</p>
 
----
+<p>Two synchronizing methods are commonly used:</p>
+<ol>
+<li>Using incandescent lamps</li>
+<li>Using synchroscope</li>
+</ol>
 
-## 🛠 Synchronizing Methods
 
-There are two primary methods discussed in this lab:
+<h3>(a) Using Incandescent Lamp Method</h3>
 
-### A. Incandescent Lamp Method
-This method uses three lamps ($L_1, L_2$, and $L_3$) connected between the incoming machine (G2) and the running bus bar (G1).
+<p>
+Let machine G2 be synchronized with machine G1 already connected to the bus bar
+using three lamps (L1, L2, L3). These lamps are known as synchronizing lamps.
+</p>
 
-* **Dark Lamp Method**: Synchronization is performed at the middle of the "dark period" when the voltage difference is zero.
-* **Flickering**: If frequencies differ, the lamps flicker at a rate equal to the frequency difference (beats).
-* **Siemens & Halske Connection**: By transposing two lamps (e.g., $L_2$ between $B_1$-$C_2$ and $L_3$ between $C_1$-$B_2$), the lamps glow in a cyclic succession. This indicates if the machine is **FAST** or **SLOW**.
+<div class="center">
+<img src="images/exp1/ex131.jpg" alt="Three Lamp Synchronization Method">
+<p>Fig. 1 Synchronization using three lamp method</p>
+</div>
 
-#### Drawbacks:
-* **Accuracy**: Lamps go dark at about 1/3 of the rated voltage, leading to potential phase errors.
-* **Quantitative Data**: It cannot specify exactly how much the frequency differs.
-* **High Voltage**: Not directly applicable to HV alternators without step-down transformers.
+<p>
+If machine G2 speed is not equal to machine G1, frequencies differ and phase difference
+appears between voltages. As a result, lamps flicker alternately bright and dark.
+Synchronization is done during the middle of the dark period. This is called the
+<b>Dark Lamp Method</b>.
+</p>
 
-### B. Synchroscope Method
-A synchroscope is a dedicated instrument providing a more precise indication for synchronization.
+<div class="center">
+<img src="images/exp1/ex132.jpg" alt="Waveforms with Different Frequencies">
+<p>Fig. 2 Waveforms when two systems operate at different frequencies</p>
+</div>
 
-* **The Pointer**: A rotating pointer indicates the phase difference.
-* **Direction of Rotation**: 
-    * **Clockwise**: Incoming machine is running too **FAST**.
-    * **Anti-clockwise**: Incoming machine is running too **SLOW**.
-* **Synchronization Point**: The switch is closed when the pointer stays stationary at the 12 o'clock (vertical) position.
+<p>
+Lamp L1 is connected between A1–A2, L2 between B1–C2, and L3 between C1–B2.
+These lamps brighten and darken cyclically depending on whether machine G2
+is running fast or slow.
+</p>
 
----
+<p>
+The synchronizing switch is closed when lamp L1 becomes completely dark.
+This arrangement also indicates whether the incoming machine is slow or fast.
+</p>
 
-## 🖼 Figures and Visuals
+<h4>Drawbacks of Lamp Method</h4>
 
-| Figure | Description |
-| :--- | :--- |
-| **Fig. 1** | Synchronization using the three-lamp method circuit diagram. |
-| **Fig. 2** | Waveforms of two systems operating at different frequencies. |
-| **Fig. 3** | Synchroscope dial and connection. |
+<ol>
+<li>Lamps become dark at about one-third rated voltage, causing faulty synchronization.</li>
+<li>Cannot determine how much the machine is slow or fast.</li>
+<li>Not suitable for high-voltage alternators without step-down transformers.</li>
+</ol>
 
----
 
-## 🚀 Navigation
+<h3>(b) Synchronization by Synchroscope</h3>
 
-* [Objective](./objective1.html)
-* [Equipments](./equip1.html)
-* [Theory](./theory1.html)
-* [Connection Diagram](./connection1.html)
-* [Procedure](./proce1.html)
-* [Simulation](./sim1.html)
-* [Quiz](./quiz1.html)
+<p>
+A synchroscope indicates the correct instant of closing the synchronizing switch using a rotating pointer.
+</p>
 
----
-© Virtual Labs - Dayalbagh Educational Institute
+<ul>
+<li>Pointer rotates clockwise → Incoming machine is fast</li>
+<li>Pointer rotates anticlockwise → Incoming machine is slow</li>
+</ul>
+
+<div class="center">
+<img src="images/exp1/ex133.jpg" alt="Synchroscope Method">
+<p>Fig. 3 Synchronizing by Synchroscope</p>
+</div>
+
+
+<h2>Equipments Required</h2>
+
+<ul>
+<li>DC Motor – Alternator Set</li>
+<div class="center">
+<img src="images/exp1/Eqp_mGset.jpg">
+</div>
+
+<li>AC Voltmeter</li>
+<div class="center">
+<img src="images/exp1/Eqp_ACvoltmeter.jpg">
+</div>
+
+<li>Rheostat</li>
+<div class="center">
+<img src="images/exp1/Eqp_rehostate.jpg">
+</div>
+
+<li>Tachometer</li>
+<div class="center">
+<img src="images/exp1/Eqp_techo.jpg">
+</div>
+</ul>
+
+</body>
+</html>
