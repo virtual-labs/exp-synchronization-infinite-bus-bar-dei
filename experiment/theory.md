@@ -30,7 +30,7 @@ ul, ol{
 
 <body>
 
-<h2>Theory of Experiment – 1</h2>
+<h2>Theory </h2>
 
 <p>Before synchronization, the following conditions must be satisfied:</p>
 
