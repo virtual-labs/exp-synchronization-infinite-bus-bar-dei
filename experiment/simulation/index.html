@@ -1,13 +1,262 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Motor Simulation Lab</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .simulation-links {
+            background: #eef2f3;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .simulation-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .simulation-links li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .simulation-links a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            flex: 1;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+        }
+
+        .output-group {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #27ae60;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: background 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background: #219150;
+        }
+
+        .trend-icon {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        .range-hint {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var prev_speedw = "";
+        var count = 0;
+        var previa = "";
+        var prev_v1 = "";
+        var prev_Rf1 = "";
+        var prev_Ra1 = "";
+
+        // Path to images - update these strings if your image folder structure changes
+        const IMG_PATH = "../Dreamweaver/images/";
+
+        function DCmotorModel() {
+            // Physical Constants
+            let Ra = 1.0, Rf = 150, Lf = 0.01, La = 0.1, c = 10, T = 0.01, B = 1.5, x1 = 0.01, fc = 0.01, dt = 0.0001, v = 220;
+            let ia = 0, w = 0;
+
+            const form = document.the_form;
+            let v1 = form.valv.value;
+            let Rf1 = form.varRf.value;
+            let Ra1 = form.varRa.value;
+
+            // Validation
+            if (v1 === "" || v1 < -50 || v1 > 50) {
+                alert("Please enter Terminal Voltage variation between -50 and 50");
+                form.valv.focus();
+                return false;
+            }
+            if (Rf1 === "" || Rf1 < 0 || Rf1 > 20) {
+                alert("Please enter Field Resistance variation between 0 and 20");
+                form.varRf.focus();
+                return false;
+            }
+            if (Ra1 === "" || Ra1 < 0 || Ra1 > 1) {
+                alert("Please enter Armature Resistance variation between 0 and 1");
+                form.varRa.focus();
+                return false;
+            }
+
+            v1 = Number(v1); Rf1 = Number(Rf1); Ra1 = Number(Ra1);
+
+            // Visual Trends for Inputs
+            if (count > 0) {
+                updateTrendIcon("placeherev1", prev_v1, v1);
+                updateTrendIcon("placehereRf1", prev_Rf1, Rf1);
+                updateTrendIcon("placehereRa1", prev_Ra1, Ra1);
+            }
+
+            prev_v1 = v1; prev_Rf1 = Rf1; prev_Ra1 = Ra1;
+
+            // Updated Params
+            v = v + v1; 
+            Rf = Rf + Rf1; 
+            Ra = Ra + Ra1;
+
+            // Euler Integration for Simulation
+            for (let i = 0; i < 10000; i++) {
+                let dfc = (v - (Rf * fc)) / Lf;
+                let dia = (v - (c * fc * w) - (Ra * ia)) / La;
+                let dw = ((c * fc * ia) - T - (B * w)) / x1;
+                fc += dt * dfc;
+                ia += dt * dia;
+                w += dt * dw;
+            }
+
+            // Output: Current
+            let curria = (Math.round(ia * 100) / 100);
+            form.curria.value = curria;
+            if (count > 0) updateTrendIcon("placeherec", previa, curria, true);
+            previa = curria;
+
+            // Output: Speed
+            let speedw = (Math.round(w * 600 / 6.363 * 100) / 100);
+            form.speedw.value = speedw;
+            if (count > 0) updateTrendIcon("placeheres", prev_speedw, speedw, true);
+            prev_speedw = speedw;
+
+            count++;
+        }
+
+        function updateTrendIcon(elementId, oldVal, newVal, isOutput = false) {
+            let suffix = isOutput ? "_out.jpg" : "_in.jpg";
+            let img = document.getElementById(elementId);
+            if (newVal > oldVal) img.src = IMG_PATH + "increase" + suffix;
+            else if (newVal < oldVal) img.src = IMG_PATH + "decrease" + suffix;
+            else img.src = IMG_PATH + "neutral" + suffix;
+        }
+    </script>
 </head>
 <body>
-		<!-- Your code goes here-->
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<div class="container">
+    <h1>Simulation of Experiment - 1</h1>
+    
+    <div class="simulation-links">
+        <p><strong>Other Simulations:</strong></p>
+        <ul>
+            <li><a href="../Dreamweaver/Sim_dcmotor.html">DC Motor</a></li>
+            <li><a href="../Dreamweaver/syn_Sim.html">Alternator</a></li>
+            <li><a href="../Dreamweaver/Sim_DG_Set.html">M-A Set</a></li>
+            <li><a href="../Dreamweaver/sim_1_iv.html">Transient DC</a></li>
+        </ul>
+    </div>
+
+    <form name="the_form" onsubmit="return false;">
+        <h2>INPUT PARAMETERS</h2>
+        
+        <div class="input-group">
+            <label>Terminal Voltage (230V + &Delta;V):</label>
+            <input type="text" name="valv" placeholder="0">
+            <span class="range-hint">(-50 to 50V)</span>
+            <img id="placeherev1" class="trend-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+        </div>
+
+        <div class="input-group">
+            <label>Field Resistance (160&Omega; + &Delta;R<sub>f</sub>):</label>
+            <input type="text" name="varRf" placeholder="0">
+            <span class="range-hint">(0-20&Omega;)</span>
+            <img id="placehereRf1" class="trend-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+        </div>
+
+        <div class="input-group">
+            <label>Armature Resistance (1&Omega; + &Delta;R<sub>a</sub>):</label>
+            <input type="text" name="varRa" placeholder="0">
+            <span class="range-hint">(0-1&Omega;)</span>
+            <img id="placehereRa1" class="trend-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+        </div>
+
+        <a href="#" class="btn-calculate" onClick="DCmotorModel();">CALCULATE MOTOR STEADY STATE</a>
+
+        <div class="output-group">
+            <h2>SIMULATION OUTPUTS</h2>
+            <div class="input-group">
+                <label>Motor Speed (RPM):</label>
+                <input type="text" name="speedw" readonly>
+                <img id="placeheres" class="trend-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+            </div>
+
+            <div class="input-group">
+                <label>Armature Current I<sub>a</sub> (A):</label>
+                <input type="text" name="curria" readonly>
+                <img id="placeherec" class="trend-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+            </div>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
