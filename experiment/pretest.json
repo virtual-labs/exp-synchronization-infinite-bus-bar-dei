@@ -12,7 +12,7 @@
       "explanations": {
         "a": "Explanation for 750 rpm",
         "b": "Explanation for 1500 rpm",
-        "c": "Correct. Turbo synchronous generators (with cylindrical rotors) are designed for high speeds, typically 3000 rpm for 50 Hz systems (or 3600 rpm for 60 Hz) with a 2-pole configuration.",
+        "c": "Correct. Turbo synchronous generators are designed for high speeds, typically 3000 rpm for 50 Hz systems with a 2-pole configuration.",
         "d": "Explanation for 6000 rpm"
       },
       "correctAnswer": "c",
@@ -27,7 +27,7 @@
         "d": "dc shunt motor"
       },
       "explanations": {
-        "a": "Correct. An exciter is typically a small DC shunt generator that provides the DC field current to the rotor of the main alternator.",
+        "a": "Correct. An exciter is typically a small DC shunt generator that provides DC field current to the rotor of the alternator.",
         "b": "Explanation for dc series generator",
         "c": "Explanation for dc compound generator",
         "d": "Explanation for dc shunt motor"
@@ -47,7 +47,7 @@
         "a": "Explanation for steam engine",
         "b": "Explanation for reciprocating diesel engine",
         "c": "Explanation for Francis turbine",
-        "d": "Correct. Steam turbines operate at very high speeds (e.g., 3000 rpm or 3600 rpm) compared to other prime movers."
+        "d": "Correct. Steam turbines operate at very high speeds compared to other prime movers."
       },
       "correctAnswer": "d",
       "difficulty": "intermediate"
@@ -64,7 +64,7 @@
         "a": "Explanation for low voltage alternator",
         "b": "Explanation for hydrogen cooled prime mover",
         "c": "Explanation for high speed prime-mover",
-        "d": "Correct. Salient pole rotors are used for low and medium speed applications (e.g., hydro turbines, diesel engines)."
+        "d": "Correct. Salient pole rotors are used for low and medium speed applications like hydro turbines."
       },
       "correctAnswer": "d",
       "difficulty": "intermediate"
@@ -79,10 +79,12 @@
       },
       "explanations": {
         "a": "Explanation for cast iron",
-        "b": "Correct. Turbo alternators (cylindrical rotor) use solid forged steel rotors to withstand high centrifugal forces.",
+        "b": "Correct. Turbo alternators use forged steel rotors to withstand high centrifugal forces.",
         "c": "Explanation for laminated stainless steel",
         "d": "Explanation for manganese steel"
       },
       "correctAnswer": "b",
       "difficulty": "intermediate"
-    },
+    }
+  ]
+}
