@@ -1,31 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Synchronization of Alternator with Infinite Bus Bar</title>
-<style>
-body{
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    line-height: 1.6;
-}
-h2{
-    color: #2c3e50;
-}
-.section-title{
-    font-weight: bold;
-    margin-top: 20px;
-}
-img{
-    display: block;
-    margin: 10px auto;
-}
-ul, ol{
-    margin-left: 25px;
-}
-.center{
-    text-align: center;
-}
-</style>
+
 </head>
 
 <body>
