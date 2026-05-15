@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "The maximum speed of prime mover in case of a turbo synchronous generator is",
+      "question": "1.The maximum speed of prime mover in case of a turbo synchronous generator is",
       "answers": {
         "a": "750 rpm",
         "b": "1500 rpm",
@@ -19,7 +19,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "An exciter is nothing but a",
+      "question": "2.An exciter is nothing but a",
       "answers": {
         "a": "dc shunt generator",
         "b": "dc series generator",
@@ -36,7 +36,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "An alternator coupled to which prime mover will usually have the highest rotating speed",
+      "question": "3.An alternator coupled to which prime mover will usually have the highest rotating speed",
       "answers": {
         "a": "steam engine",
         "b": "reciprocating diesel engine",
@@ -53,7 +53,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Salient pole type alternator are generally used on",
+      "question": "4.Salient pole type alternator are generally used on",
       "answers": {
         "a": "low voltage alternator",
         "b": "hydrogen cooled prime mover",
@@ -70,7 +70,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "The rotor of turbo alternators is usually made up of",
+      "question": "5.The rotor of turbo alternators is usually made up of",
       "answers": {
         "a": "cast iron",
         "b": "forged steel",
