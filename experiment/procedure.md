@@ -1,4 +1,4 @@
-# Experiment 1 – Synchronization of Alternator with Infinite Bus Bar
+
 
 ## Procedure of the Experiment – 1
 
