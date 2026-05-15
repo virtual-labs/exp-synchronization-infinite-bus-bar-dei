@@ -3,7 +3,7 @@
   "questions": [
    
     {
-      "question": "When alternator is supplying resistive load",
+      "question": " 1.When alternator is supplying resistive load",
       "answers": {
         "a": "the armature reaction flux will be almost zero",
         "b": "the armature reaction flux will be along the axis of the field",
@@ -20,7 +20,7 @@
       "difficulty": "advanced"
     },
     {
-      "question": "How many electrical degrees in one rotation for a 12 pole alternator -",
+      "question": "2.How many electrical degrees in one rotation for a 12 pole alternator -",
       "answers": {
         "a": "60 deg.",
         "b": "360 deg.",
@@ -37,7 +37,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Three phase alternator are usually star connected",
+      "question": "3.Three phase alternator are usually star connected",
       "answers": {
         "a": "to save copper",
         "b": "to reduce conductor size",
@@ -54,7 +54,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Short circuit ratio of a turbo alternator is usually",
+      "question": "4.Short circuit ratio of a turbo alternator is usually",
       "answers": {
         "a": "0.5",
         "b": "0.5 to 0.7",
@@ -71,7 +71,7 @@
       "difficulty": "advanced"
     },
     {
-      "question": "Under which condition hunting of synchronous motor is likely to occur",
+      "question": "5.Under which condition hunting of synchronous motor is likely to occur",
       "answers": {
         "a": "periodic variation of load",
         "b": "over-excitation",
