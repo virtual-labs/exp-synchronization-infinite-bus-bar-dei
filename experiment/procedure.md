@@ -5,7 +5,6 @@
 ### Procedural Steps
 
 1. Make the connections.  
-   **[Click here for connection diagram](connection1.html)**
 
 2. Run one of the alternators and adjust its voltage to the rated value. Then close the switch to connect it with the bus bar.
 
