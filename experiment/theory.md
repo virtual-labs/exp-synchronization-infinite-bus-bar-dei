@@ -40,9 +40,11 @@ Let machine G2 be synchronized with machine G1 already connected to the bus bar
 using three lamps (L1, L2, L3). These lamps are known as synchronizing lamps.
 </p>
 
-<div class="center">
+<div align="center">
+  
 <img src="images/exp1/ex131.jpg" alt="Three Lamp Synchronization Method">
 <p>Fig. 1 Synchronization using three lamp method</p>
+
 </div>
 
 <p>
@@ -52,9 +54,11 @@ Synchronization is done during the middle of the dark period. This is called the
 <b>Dark Lamp Method</b>.
 </p>
 
-<div class="center">
+<div align="center">
+  
 <img src="images/exp1/ex132.jpg" alt="Waveforms with Different Frequencies">
 <p>Fig. 2 Waveforms when two systems operate at different frequencies</p>
+
 </div>
 
 <p>
@@ -88,35 +92,21 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
 <li>Pointer rotates anticlockwise → Incoming machine is slow</li>
 </ul>
 
-<div class="center">
-<img src="images/exp1/ex133.jpg" alt="Synchroscope Method">
-<p>Fig. 3 Synchronizing by Synchroscope</p>
+<div align="center">
+  <img src="images/exp1/ex133.jpg" alt="Synchroscope Method">
+  <p>Fig. 3 Synchronizing by Synchroscope</p>
 </div>
 
+  
+## Equipments Required
 
-<h2>Equipments Required</h2>
+<div align="center">
 
-<ul>
-<li>DC Motor – Alternator Set</li>
-<div class="center">
-<img src="images/exp1/Eqp_mGset.jpg">
+| Equipment | Image |
+|:---|:---:|
+| **DC Motor – Alternator Set** | <img src="images/exp1/Eqp_mGset.jpg" width="200"> |
+| **AC Voltmeter** | <img src="images/exp1/Eqp_ACvoltmeter.jpg" width="200"> |
+| **Rheostat** | <img src="images/exp1/Eqp_rehostate.jpg" width="200"> |
+| **Tachometer** | <img src="images/exp1/Eqp_techo.jpg" width="200"> |
+
 </div>
-
-<li>AC Voltmeter</li>
-<div class="center">
-<img src="images/exp1/Eqp_ACvoltmeter.jpg">
-</div>
-
-<li>Rheostat</li>
-<div class="center">
-<img src="images/exp1/Eqp_rehostate.jpg">
-</div>
-
-<li>Tachometer</li>
-<div class="center">
-<img src="images/exp1/Eqp_techo.jpg">
-</div>
-</ul>
-
-</body>
-</html>
