@@ -14,7 +14,7 @@
 
 ---
 
-## Connection Diagram of Experiment – 1
+## Connection Diagram 
 
 <div align="center">
   <img src="images/exp1/Fig.1.1.jpg" alt="Connection diagram for synchronizing the alternator with 3-lamp method">
