@@ -100,15 +100,34 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
   
 ## Equipments Required
 
-
 <div align="center">
 
-| Equipment | Image |
-|:---|:---:|
-| **DC Motor – Alternator Set** | <img src="images/exp1/Eqp_mGset.jpg" width="200"> |
-| **AC Voltmeter** | <img src="images/exp1/Eqp_ACvoltmeter.jpg" width="200"> |
-| **Rheostat** | <img src="images/exp1/Eqp_rehostate.jpg" width="200"> |
-| **Tachometer** | <img src="images/exp1/Eqp_techo.jpg" width="200"> |
+<table>
+  <thead>
+    <tr>
+      <th>Equipment</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>DC Motor – Alternator Set</b></td>
+      <td><img src="images/exp1/Eqp_mGset.jpg" width="200"></td>
+    </tr>
+    <tr>
+      <td><b>AC Voltmeter</b></td>
+      <td><img src="images/exp1/Eqp_ACvoltmeter.jpg" width="200"></td>
+    </tr>
+    <tr>
+      <td><b>Rheostat</b></td>
+      <td><img src="images/exp1/Eqp_rehostate.jpg" width="200"></td>
+    </tr>
+    <tr>
+      <td><b>Tachometer</b></td>
+      <td><img src="images/exp1/Eqp_techo.jpg" width="200"></td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
