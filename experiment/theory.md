@@ -156,7 +156,7 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
   <div class="video-container">
     <h2>Experiment 1: Synchronization of Alternator</h2>
     <video width="800" height="600" controls autoplay>
-      <source src=" /videos/video1.mp4" type="video/mp4">
+      <source src=" /videos/Video1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <br/><br/>
