@@ -110,3 +110,57 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
 | **Tachometer** | <img src="images/exp1/Eqp_techo.jpg" width="200"> |
 
 </div>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Experiment 1 - Synchronization of Alternator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .video-container {
+      text-align: center;
+    }
+    video {
+      max-width: 90%;
+      height: auto;
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h2 {
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .close-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <h2>Experiment 1: Synchronization of Alternator</h2>
+    <video width="800" height="600" controls autoplay>
+      <source src=" /videos/video1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <br/><br/>
+    <button class="close-btn" onclick="window.close()">Close</button>
+  </div>
+</body>
+</html>
