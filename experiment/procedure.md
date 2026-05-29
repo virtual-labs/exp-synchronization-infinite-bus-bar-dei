@@ -1,8 +1,6 @@
 
 
-## Procedure of the Experiment – 1
-
-### Procedural Steps
+## Procedure 
 
 1. Make the connections.  
 
@@ -12,7 +10,14 @@
 
 4. Synchronize the incoming machine using any one synchronization method.
 
----
+## Observations 
+
+1. Measure and adjust voltage of incoming machine (V<sub>g</sub>) and bus bar (V<sub>s</sub>) till V<sub>g</sub> = V<sub>s</sub>.
+
+2. Measure and adjust the speed of incoming machine, till synchroscope needle creeps.
+
+3. Close synchronising switch.
+   
 
 ## Connection Diagram 
 
