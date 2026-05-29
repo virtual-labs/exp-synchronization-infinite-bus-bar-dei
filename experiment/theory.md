@@ -111,13 +111,15 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
 
 </div>
 
+## Video for experiment:
+
 <br/><br/><br/>
 
 <div align="center">
   <b style="font-size:18px">Experiment 1. To study the methods of synchronization and synchronization of the alternator with infinite bus bar.</b><br/><br/>
   
-  <video width="480" height="360" autoplay loop controls>
-    <source src=" videos/Video1.mp4" type="video/mp4">
+  <video width="480" height="360" controls>
+    <source src="videos/Video1.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
