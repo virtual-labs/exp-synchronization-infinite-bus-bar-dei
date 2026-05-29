@@ -100,6 +100,7 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
   
 ## Equipments Required
 
+
 <div align="center">
 
 | Equipment | Image |
