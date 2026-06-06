@@ -102,41 +102,22 @@ A synchroscope indicates the correct instant of closing the synchronizing switch
 
 <div align="center">
 
-<table>
-  <thead>
-    <tr>
-      <th>Equipment</th>
-      <th>Image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>DC Motor – Alternator Set</b></td>
-      <td><img src="images/exp1/Eqp_mGset.jpg" width="200"></td>
-    </tr>
-    <tr>
-      <td><b>AC Voltmeter</b></td>
-      <td><img src="images/exp1/Eqp_ACvoltmeter.jpg" width="200"></td>
-    </tr>
-    <tr>
-      <td><b>Rheostat</b></td>
-      <td><img src="images/exp1/Eqp_rehostate.jpg" width="200"></td>
-    </tr>
-    <tr>
-      <td><b>Tachometer</b></td>
-      <td><img src="images/exp1/Eqp_techo.jpg" width="200"></td>
-    </tr>
-  </tbody>
-</table>
+| Equipment | Image |
+|-----------|-------|
+| **DC Motor – Alternator Set** | <img src="images/exp1/Eqp_mGset.jpg" width="200"> |
+| **AC Voltmeter** | <img src="images/exp1/Eqp_ACvoltmeter.jpg" width="200"> |
+| **Rheostat** | <img src="images/exp1/Eqp_rehostate.jpg" width="200"> |
+| **Tachometer** | <img src="images/exp1/Eqp_techo.jpg" width="200"> |
 
 </div>
+
 
 ## Video for experiment:
 
 <br/><br/><br/>
 
 <div align="center">
-  <b style="font-size:18px">Experiment 1. To study the methods of synchronization and synchronization of the alternator with infinite bus bar.</b><br/><br/>
+  <b style="font-size:18px"> To study the methods of synchronization and synchronization of the alternator with infinite bus bar.</b><br/><br/>
   
   <video width="480" height="360" controls>
     <source src="videos/Video1.mp4" type="video/mp4">
