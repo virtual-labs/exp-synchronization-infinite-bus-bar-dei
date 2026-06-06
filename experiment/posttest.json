@@ -3,7 +3,7 @@
   "questions": [
    
     {
-      "question": " 6.When alternator is supplying resistive load",
+      "question": " 1. When alternator is supplying resistive load",
       "answers": {
         "a": "the armature reaction flux will be almost zero",
         "b": "the armature reaction flux will be along the axis of the field",
@@ -16,11 +16,10 @@
         "c": "Correct. For purely resistive load, armature reaction is cross-magnetizing (90° to field axis).",
         "d": "Incorrect. That would be for purely capacitive load."
       },
-      "correctAnswer": "c",
-      "difficulty": "advanced"
+      "correctAnswer": "c"
     },
     {
-      "question": "7.How many electrical degrees in one rotation for a 12 pole alternator -",
+      "question": "2. How many electrical degrees in one rotation for a 12 pole alternator -",
       "answers": {
         "a": "60 deg.",
         "b": "360 deg.",
@@ -33,11 +32,10 @@
         "c": "Incorrect. That would be for 6 poles.",
         "d": "Correct. One mechanical rotation equals 2160 electrical degrees."
       },
-      "correctAnswer": "d",
-      "difficulty": "intermediate"
+      "correctAnswer": "d"
     },
     {
-      "question": "8.Three phase alternator are usually star connected",
+      "question": "3.Three phase alternator are usually star connected",
       "answers": {
         "a": "to save copper",
         "b": "to reduce conductor size",
@@ -50,11 +48,10 @@
         "c": "Correct. Star connection gives √3 times phase voltage as line voltage.",
         "d": "Incorrect. Windage losses are mechanical losses."
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+      "correctAnswer": "c"
     },
     {
-      "question": "9.Short circuit ratio of a turbo alternator is usually",
+      "question": "4. Short circuit ratio of a turbo alternator is usually",
       "answers": {
         "a": "0.5",
         "b": "0.5 to 0.7",
@@ -67,11 +64,10 @@
         "c": "Incorrect. Range is too wide.",
         "d": "Incorrect. This range applies to salient pole machines."
       },
-      "correctAnswer": "b",
-      "difficulty": "advanced"
+      "correctAnswer": "b"
     },
     {
-      "question": "10.Under which condition hunting of synchronous motor is likely to occur",
+      "question": "5. Under which condition hunting of synchronous motor is likely to occur",
       "answers": {
         "a": "periodic variation of load",
         "b": "over-excitation",
@@ -84,8 +80,7 @@
         "c": "Incorrect. Long overload may cause pull-out.",
         "d": "Incorrect. Constant load does not cause hunting."
       },
-      "correctAnswer": "a",
-      "difficulty": "intermediate"
+      "correctAnswer": "a"
     }
   ]
 }
