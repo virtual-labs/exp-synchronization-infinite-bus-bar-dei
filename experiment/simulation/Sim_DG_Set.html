@@ -52,17 +52,17 @@
       v1 = Number(v1); Rf1 = Number(Rf1); Ra1 = Number(Ra1); Rfg1 = Number(Rfg1);
 
       if (count > 0) {
-        document.getElementById("placeherev1").src = (prev_v1 > v1) ? "../Dreamweaver/images/decrease_in.jpg" :
-          (prev_v1 < v1) ? "../Dreamweaver/images/increase_in.jpg" : "../Dreamweaver/images/neutral_in.jpg";
+        document.getElementById("placeherev1").src = (prev_v1 > v1) ? " images/decrease_in.jpg" :
+          (prev_v1 < v1) ? " images/increase_in.jpg" : " images/neutral_in.jpg";
 
-        document.getElementById("placehereRf1").src = (prev_Rf1 > Rf1) ? "../Dreamweaver/images/decrease_in.jpg" :
-          (prev_Rf1 < Rf1) ? "../Dreamweaver/images/increase_in.jpg" : "../Dreamweaver/images/neutral_in.jpg";
+        document.getElementById("placehereRf1").src = (prev_Rf1 > Rf1) ? " images/decrease_in.jpg" :
+          (prev_Rf1 < Rf1) ? " images/increase_in.jpg" : " images/neutral_in.jpg";
 
-        document.getElementById("placehereRa1").src = (prev_Ra1 > Ra1) ? "../Dreamweaver/images/decrease_in.jpg" :
-          (prev_Ra1 < Ra1) ? "../Dreamweaver/images/increase_in.jpg" : "../Dreamweaver/images/neutral_in.jpg";
+        document.getElementById("placehereRa1").src = (prev_Ra1 > Ra1) ? " images/decrease_in.jpg" :
+          (prev_Ra1 < Ra1) ? " images/increase_in.jpg" : " images/neutral_in.jpg";
 
-        document.getElementById("placehereRfg1").src = (prev_Rfg1 > Rfg1) ? "../Dreamweaver/images/decrease_in.jpg" :
-          (prev_Rfg1 < Rfg1) ? "../Dreamweaver/images/increase_in.jpg" : "../Dreamweaver/images/neutral_in.jpg";
+        document.getElementById("placehereRfg1").src = (prev_Rfg1 > Rfg1) ? " images/decrease_in.jpg" :
+          (prev_Rfg1 < Rfg1) ? " images/increase_in.jpg" : " images/neutral_in.jpg";
       }
 
       prev_v1 = v1; prev_Rf1 = Rf1; prev_Ra1 = Ra1; prev_Rfg1 = Rfg1;
@@ -91,40 +91,40 @@
       document.the_form.curria.value = curria;
 
       if (count > 0) {
-        document.getElementById("placeherec").src = (previa > curria) ? "../Dreamweaver/images/decrease_out.jpg" :
-          (previa < curria) ? "../Dreamweaver/images/increase_out.jpg" : "../Dreamweaver/images/neutral_out.jpg";
+        document.getElementById("placeherec").src = (previa > curria) ? " images/decrease_out.jpg" :
+          (previa < curria) ? " images/increase_out.jpg" : " images/neutral_out.jpg";
       }
       previa = curria;
 
       var speedw = (Math.round(w * 600 / 6.363 * 100) / 100);
       document.the_form.speedw.value = speedw;
       if (count > 0) {
-        document.getElementById("placeheres").src = (prev_speedw > speedw) ? "../Dreamweaver/images/decrease_out.jpg" :
-          (prev_speedw < speedw) ? "../Dreamweaver/images/increase_out.jpg" : "../Dreamweaver/images/neutral_out.jpg";
+        document.getElementById("placeheres").src = (prev_speedw > speedw) ? " images/decrease_out.jpg" :
+          (prev_speedw < speedw) ? " images/increase_out.jpg" : " images/neutral_out.jpg";
       }
       prev_speedw = speedw;
 
       var freq = (Math.round(f * 100) / 100);
       document.the_form.freq.value = freq;
       if (count > 0) {
-        document.getElementById("placeheref").src = (prev_freq > freq) ? "../Dreamweaver/images/decrease_out.jpg" :
-          (prev_freq < freq) ? "../Dreamweaver/images/increase_out.jpg" : "../Dreamweaver/images/neutral_out.jpg";
+        document.getElementById("placeheref").src = (prev_freq > freq) ? " images/decrease_out.jpg" :
+          (prev_freq < freq) ? " images/increase_out.jpg" : " images/neutral_out.jpg";
       }
       prev_freq = freq;
 
       var valg = (Math.round(vg * 100) / 100);
       document.the_form.valvg.value = valg;
       if (count > 0) {
-        document.getElementById("placeherev").src = (prev_valg > valg) ? "../Dreamweaver/images/decrease_out.jpg" :
-          (prev_valg < valg) ? "../Dreamweaver/images/increase_out.jpg" : "../Dreamweaver/images/neutral_out.jpg";
+        document.getElementById("placeherev").src = (prev_valg > valg) ? " images/decrease_out.jpg" :
+          (prev_valg < valg) ? " images/increase_out.jpg" : " images/neutral_out.jpg";
       }
       prev_valg = valg;
 
       var cumerr1 = (Math.round(cumerr * 100) / 100);
       document.the_form.cumerr1.value = cumerr1;
       if (count > 0) {
-        document.getElementById("placeheree").src = (prev_cumerr1 > cumerr1) ? "../Dreamweaver/images/decrease_out.jpg" :
-          (prev_cumerr1 < cumerr1) ? "../Dreamweaver/images/increase_out.jpg" : "../Dreamweaver/images/neutral_out.jpg";
+        document.getElementById("placeheree").src = (prev_cumerr1 > cumerr1) ? " images/decrease_out.jpg" :
+          (prev_cumerr1 < cumerr1) ? " images/increase_out.jpg" : " images/neutral_out.jpg";
       }
       prev_cumerr1 = cumerr1;
 
@@ -158,7 +158,7 @@
     </font>
   </h1>
   <form name="the_form">
-    <img src="images/exp1/alternator.jpg" width=400 height=400 align="right" />
+    <img src="images/exp1/alternator.jpg" width=250 height=250 align="right" />
     <h2><font color="#0076EC">INPUTS</font><br></h2>
     <div id="sim">
       Motor V<sub>m</sub> = 230V + ΔV<sub>m</sub>
