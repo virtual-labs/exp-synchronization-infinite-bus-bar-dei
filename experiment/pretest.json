@@ -15,8 +15,7 @@
         "c": "Correct. Turbo synchronous generators are designed for high speeds, typically 3000 rpm for 50 Hz systems with a 2-pole configuration.",
         "d": "Explanation for 6000 rpm"
       },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
+      "correctAnswer": "c"
     },
     {
       "question": "2.An exciter is nothing but a",
@@ -32,8 +31,7 @@
         "c": "Explanation for dc compound generator",
         "d": "Explanation for dc shunt motor"
       },
-      "correctAnswer": "a",
-      "difficulty": "intermediate"
+      "correctAnswer": "a"
     },
     {
       "question": "3.An alternator coupled to which prime mover will usually have the highest rotating speed",
@@ -49,8 +47,7 @@
         "c": "Explanation for Francis turbine",
         "d": "Correct. Steam turbines operate at very high speeds compared to other prime movers."
       },
-      "correctAnswer": "d",
-      "difficulty": "intermediate"
+      "correctAnswer": "d"
     },
     {
       "question": "4.Salient pole type alternator are generally used on",
@@ -66,8 +63,7 @@
         "c": "Explanation for high speed prime-mover",
         "d": "Correct. Salient pole rotors are used for low and medium speed applications like hydro turbines."
       },
-      "correctAnswer": "d",
-      "difficulty": "intermediate"
+      "correctAnswer": "d"
     },
     {
       "question": "5.The rotor of turbo alternators is usually made up of",
@@ -83,8 +79,7 @@
         "c": "Explanation for laminated stainless steel",
         "d": "Explanation for manganese steel"
       },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
+      "correctAnswer": "b"
     }
   ]
 }
