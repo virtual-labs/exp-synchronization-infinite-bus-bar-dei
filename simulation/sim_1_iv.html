@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Virtual Labs - DEI | Speed Control of DC Shunt Motor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style type="text/css" media="screen">
+        /* --- Core DEI Styling (Image-Free & Clean, No Buttons) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fb;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #1a1a2e;
+        }
+        
+        .title {
+            text-align: center;
+            text-decoration: underline;
+            font: lighter 2.8em Georgia, "Times New Roman", Times, serif;
+            color: #0a2f44;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+            font-weight: 600;
+            color: #0a2f44;
+        }
+
+        h1 { font-size: 24px; letter-spacing: -0.5px; }
+        h2 { font-size: 1.8em; border-left: 5px solid #d9534f; padding-left: 15px; margin-top: 10px; }
+        h3 { font-size: 1.3em; margin-bottom: 8px; color: #0056b3; }
+
+        p, li { line-height: 1.5; text-align: justify; color: #2d2f36; }
+        
+        /* layout */
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* header clean */
+        #header {
+            width: 100%;
+            margin: 20px 0 10px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e4e8;
+            text-align: center;
+        }
+        .lab-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: #b22234;
+            letter-spacing: 1px;
+        }
+        .lab-sub {
+            font-size: 14px;
+            color: #4a627a;
+            margin-top: 5px;
+        }
+
+        /* page layout - full width, no sidebar */
+        #page {
+            margin: 20px 0;
+        }
+        #content {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 25px 35px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f8;
+            box-sizing: border-box;
+        }
+
+        /* simulation styling */
+        .sim-container {
+            margin-top: 20px;
+        }
+        .chart-container {
+            position: relative;
+            height: 450px;
+            width: 100%;
+            margin: 20px 0;
+            background: #fafcff;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .controls-container {
+            background: #f0f4fa;
+            border-radius: 28px;
+            padding: 22px 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .slider {
+            width: 85%;
+            cursor: pointer;
+            accent-color: #b22234;
+            margin: 10px 0;
+        }
+        #torqueValue {
+            font-weight: bold;
+            color: #d9534f;
+            font-size: 1.2em;
+            background: #fff0f0;
+            padding: 2px 12px;
+            border-radius: 40px;
+        }
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .param-table th, .param-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 10px;
+            text-align: center;
+        }
+        .param-table th {
+            background: #eef2f9;
+            font-weight: 700;
+            color: #1e4663;
+        }
+        .explanation {
+            background: #eef3fe;
+            border-left: 6px solid #d9534f;
+            padding: 20px 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        .explanation ol {
+            padding-left: 1.2rem;
+        }
+        .explanation li {
+            margin: 12px 0;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ccc, transparent);
+        }
+        .diagram-placeholder {
+            background: #f6f8fa;
+            border: 2px dashed #b0c4de;
+            border-radius: 24px;
+            text-align: center;
+            padding: 24px;
+            font-size: 1rem;
+            color: #2c5282;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 12px;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+            margin-top: 40px;
+        }
+        .lab-tip {
+            background: #fef7e0;
+            padding: 12px 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #f5a623;
+            font-size: 13px;
+        }
+        @media (max-width: 768px) {
+            #content { padding: 20px; }
+            .slider { width: 100%; }
+            .chart-container { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <!-- Header: simple text branding -->
+    <div id="header">
+        <div class="lab-brand">⚡ DEI Virtual PowerLab</div>
+        <div class="lab-sub">Department of Electrical Engineering | Advanced Motor Control Simulation</div>
+    </div>
+
+    <div id="page">
+        <!-- MAIN CONTENT (Simulation only, no buttons/sidebar) -->
+        <div id="content">
+            <div class="post">
+                <h2 class="title">Speed Control of a DC Shunt Motor by Armature Resistance</h2>
+                <h1 style="text-align:center; color:#b22234; margin:10px 0;">⚡ DC MOTOR SIMULATION ⚡</h1>
+                <hr noshade>
+                
+                <!-- Connection Diagram Section: text only -->
+                <p><strong><u>🔹 CONNECTION DIAGRAM (Schematic Description)</u></strong></p>
+                <div class="diagram-placeholder">
+                    📐 <strong>Armature Resistance Control Scheme</strong> — A variable external resistor (R<sub>a_ext</sub>) is connected in series with the armature winding.<br>
+                    Supply (240V DC) → Field winding (parallel) + Armature circuit: [ R<sub>a_int</sub> + R<sub>a_ext</sub> ] → Back EMF path.<br>
+                    The diagram illustrates typical 3-point starter configuration and rheostat in armature loop.
+                </div>
+                <p><em>Fig 1.1: Schematic representation of armature resistance speed control method for DC shunt motor.</em></p>
+                
+                <!-- Simulation interactive area -->
+                <div class="sim-container">
+                    <p style="font-weight:500;">This simulation illustrates how adding external resistance (<strong>R<sub>a<sub>ext</sub></sub></strong>) in series with the armature affects motor speed, while field current remains constant. Adjust the load torque slider to explore performance under different loading conditions.</p>
+                    
+                    <!-- Chart -->
+                    <div class="chart-container">
+                        <canvas id="motorChart"></canvas>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="controls-container">
+                        <label for="torqueSlider" style="font-weight:bold; font-size:1.05rem;">🔧 Adjust Load Torque (<em>T<sub>L</sub></em>):</label><br>
+                        <input type="range" min="2" max="28" value="14" step="0.5" class="slider" id="torqueSlider">
+                        <p style="margin-top:8px;">📌 <strong>Load Torque:</strong> <span id="torqueValue">14.0</span> N·m &nbsp;|&nbsp; <span style="background:#e9ecef; padding:3px 12px; border-radius:20px;">💡 Torque ↑ → Armature current ↑ → Speed drops further</span></p>
+                        
+                        <table class="param-table">
+                            <caption>📋 DC Shunt Motor Specifications (Constant Parameters)</caption>
+                            <thead>
+                                <tr><th>Parameter</th><th>Symbol</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Terminal Voltage</td><td>$V_t$</td><td>240 V</td></tr>
+                                <tr><td>Internal Armature Resistance</td><td>$R_{a_{int}}$</td><td>0.5 Ω</td></tr>
+                                <tr><td>Field Resistance</td><td>$R_f$</td><td>120 Ω</td></tr>
+                                <tr><td>Motor Constant</td><td>$K$ (N·m/A) = $K$ (V/rad/s)</td><td>1.485</td></tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.85rem; text-align:center;">✅ <strong>Field current is constant:</strong> $I_f = V_t / R_f = 2.0 A$. Only armature current varies with load torque.</p>
+                    </div>
+                    
+                    <!-- Theory block / formulas -->
+                    <div class="explanation">
+                        <h3>📖 Underlying Principles & Governing Equations</h3>
+                        <p>The speed of a DC shunt motor is controlled by inserting external resistance $R_{a_{ext}}$ in the armature circuit. The key relationships are:</p>
+                        <ol>
+                            <li><strong>Constant Field Current ($I_f$):</strong> Because field winding is directly across supply, $I_f = \dfrac{V_t}{R_f}$ remains fixed, thus flux $\phi$ is nearly constant.</li>
+                            <li><strong>Armature Current from Load:</strong> Developed torque $T_d = K \cdot I_a$ must equal load torque $T_L$ at steady state ⇒ $I_a = \dfrac{T_L}{K}$.</li>
+                            <li><strong>Back EMF & Speed Equation:</strong> Applying KVL to armature loop: $V_t = E_b + I_a (R_{a_{int}} + R_{a_{ext}})$.
+                                Since back EMF $E_b = K \cdot \omega$ (mechanical rad/s), solving for speed:
+                                $$\omega = \dfrac{V_t - I_a (R_{a_{int}} + R_{a_{ext}})}{K}$$
+                                In RPM: $N = \omega \cdot \dfrac{60}{2\pi}$.
+                            </li>
+                            <li><strong>Effect of $R_{a_{ext}}$:</strong> As external resistance increases, the voltage drop $I_a R_{a_{ext}}$ rises, reducing back EMF and thereby <strong>reducing speed</strong>. For a fixed $T_L$, this method provides smooth speed reduction below base speed.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Lab Tip -->
+                    <div class="lab-tip">
+                        <strong>💡 LAB TIP:</strong> Armature resistance control is economical for low-power motors and provides smooth torques but is inefficient at low speed due to power loss in the external resistor.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© DEI Virtual PowerLab | Electrical Machines Simulation | Armature Resistance Speed Control Method | Interactive Learning Environment</p>
+    </footer>
+</div>
+
+<script>
+    // --- DOM Elements ---
+    const ctx = document.getElementById('motorChart').getContext('2d');
+    const torqueSlider = document.getElementById('torqueSlider');
+    const torqueValueSpan = document.getElementById('torqueValue');
+    
+    // --- DC Motor Parameters ---
+    const V_T = 240.0;          // Terminal voltage (V)
+    const R_A_INT = 0.5;        // Intrinsic armature resistance (Ω)
+    const R_F = 120.0;          // Field resistance (Ω)
+    const K_M = 1.485;          // Motor constant (Nm/A = V/(rad/s))
+    const RA_EXT_MAX = 20.0;    // Max external resistance displayed (Ω)
+    const RA_EXT_STEP = 0.4;    // resolution for smooth curve
+    
+    // Precomputed field current (constant)
+    const FIELD_CURRENT = V_T / R_F;  // = 2.0 A
+    
+    // --- Chart.js initialization ---
+    let motorChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: '🟦 Motor Speed (RPM)',
+                    borderColor: 'rgb(33, 97, 143)',
+                    backgroundColor: 'rgba(33, 97, 143, 0.02)',
+                    borderWidth: 3,
+                    yAxisID: 'y_speed',
+                    data: [],
+                    tension: 0.2,
+                    pointRadius: 1,
+                    fill: false
+                },
+                {
+                    label: '🔴 Armature Current (A)',
+                    borderColor: 'rgb(199, 60, 50)',
+                    backgroundColor: 'rgba(199, 60, 50, 0.02)',
+                    borderWidth: 2.5,
+                    yAxisID: 'y_current',
+                    data: [],
+                    borderDash: [],
+                    tension: 0.1
+                },
+                {
+                    label: '🟢 Field Current (A) (Constant)',
+                    borderColor: 'rgb(44, 130, 90)',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2.8,
+                    yAxisID: 'y_current',
+                    data: [],
+                    borderDash: [8, 6],
+                    pointRadius: 0,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            interaction: { mode: 'index', intersect: false },
+            scales: {
+                x: {
+                    title: { display: true, text: 'External Armature Resistance  Rₐₑₓₜ  (Ω)', font: { size: 13, weight: 'bold' }, color: '#2c3e50' },
+                    grid: { color: '#e9ecef' }
+                },
+                y_speed: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    title: { display: true, text: 'Speed (RPM)', font: { size: 13, weight: 'bold' }, color: '#1f6392' },
+                    grid: { color: '#e2e8f0' },
+                    min: 0,
+                },
+                y_current: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: { display: true, text: 'Current (Amperes)', font: { size: 13, weight: 'bold' }, color: '#c73c32' },
+                    grid: { drawOnChartArea: false },
+                    min: 0,
+                }
+            },
+            plugins: {
+                tooltip: { mode: 'index', intersect: false },
+                legend: { position: 'top', labels: { font: { size: 11 }, usePointStyle: true, boxWidth: 12 } },
+                title: { display: true, text: '📈 Effect of External Armature Resistance on Motor Performance', font: { size: 16 }, padding: { top: 5, bottom: 15 } }
+            }
+        }
+    });
+    
+    /**
+     * compute motor performance for given load torque (T_L)
+     * returns arrays over Ra_ext from 0 to RA_EXT_MAX
+     */
+    function computePerformance(loadTorqueNm) {
+        const labels = [];
+        const speedRpmArray = [];
+        const armCurrentArray = [];
+        const fieldCurrentArray = [];
+        
+        // Armature current is determined by load torque: Td = K * Ia = T_L  => Ia = T_L / K
+        let Ia = loadTorqueNm / K_M;
+        if (Ia < 0) Ia = 0;
+        const If_const = FIELD_CURRENT;
+        
+        for (let Ra_ext = 0; Ra_ext <= RA_EXT_MAX + 0.05; Ra_ext += RA_EXT_STEP) {
+            labels.push(Ra_ext.toFixed(1));
+            const totalArmResistance = R_A_INT + Ra_ext;
+            let Eb = V_T - (Ia * totalArmResistance);
+            if (Eb < 0) Eb = 0;
+            let omega_rads = Eb / K_M;
+            let speed_rpm = omega_rads * (60 / (2 * Math.PI));
+            if (speed_rpm < 0) speed_rpm = 0;
+            speedRpmArray.push(speed_rpm);
+            armCurrentArray.push(Ia);
+            fieldCurrentArray.push(If_const);
+        }
+        return { labels, speedRpmArray, armCurrentArray, fieldCurrentArray };
+    }
+    
+    // Update chart based on torque slider
+    function updateSimulation() {
+        let torqueLoad = parseFloat(torqueSlider.value);
+        torqueValueSpan.innerText = torqueLoad.toFixed(1);
+        
+        if (isNaN(torqueLoad)) torqueLoad = 14;
+        const computed = computePerformance(torqueLoad);
+        
+        motorChart.data.labels = computed.labels;
+        motorChart.data.datasets[0].data = computed.speedRpmArray;
+        motorChart.data.datasets[1].data = computed.armCurrentArray;
+        motorChart.data.datasets[2].data = computed.fieldCurrentArray;
+        motorChart.update();
+    }
+    
+    // Event listener
+    torqueSlider.addEventListener('input', updateSimulation);
+    
+    // initial load at 14 Nm
+    window.addEventListener('load', () => {
+        updateSimulation();
+    });
+</script>
+</body>
+</html>
